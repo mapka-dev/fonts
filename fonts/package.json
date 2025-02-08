@@ -1,0 +1,38 @@
+{
+  "name": "@mapka/root-fonts",
+  "version": "1.0.0",
+  "engines": {
+    "node": "22.x"
+  },
+  "main": "index.js",
+  "type": "module",
+  "license": "UNLICENSED",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "lint": "biome lint --write .",
+    "check": "biome check --write .",
+    "build": "tsc --build",
+    "build:watch": "tsc --build --watch",
+    "test": "vitest --run",
+    "test:coverage": "vitest --coverage",
+    "test:watch": "vitest",
+    "postinstall": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": "yarn lint"
+  },
+  "packageManager": "yarn@4.5.1",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@chyzwar/biome-config": "^0.2.31",
+    "@types/node": "^22.13.1",
+    "@vitest/coverage-v8": "^3.0.5",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "typescript": "^5.7.3",
+    "vitest": "3.0.5"
+  }
+}
