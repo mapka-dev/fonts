@@ -1,4 +1,7 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
-  "extends": ["@chyzwar/biome-config/lib"]
+  "extends": ["@chyzwar/biome-config/lib"], 
+  "linter": {
+    "ignore": ["src/*.js", "bin"]
+  }
 }

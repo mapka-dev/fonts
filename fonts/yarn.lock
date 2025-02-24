@@ -416,11 +416,22 @@ __metadata:
   resolution: "@mapka/glyph-pbf-composite@workspace:packages/glyph-pbf-composite"
   dependencies:
     "@chyzwar/tsconfig": "npm:^0.3.2"
+    "@mapka/glyph-pbf": "npm:0.0.0"
     "@types/node": "npm:^22.13.1"
-    pbf: "npm:^4.0.1"
     typescript: "npm:^5.7.3"
     vite: "npm:^6.1.0"
     vitest: "npm:^3.0.5"
+  languageName: unknown
+  linkType: soft
+
+"@mapka/glyph-pbf@npm:0.0.0, @mapka/glyph-pbf@workspace:packages/glyph-pbf":
+  version: 0.0.0-use.local
+  resolution: "@mapka/glyph-pbf@workspace:packages/glyph-pbf"
+  dependencies:
+    minimist: "npm:~0.2.0"
+    opentype.js: "npm:^1.3.4"
+    pbf: "npm:^4.0.1"
+    rbush: "npm:~1.3.2"
   languageName: unknown
   linkType: soft
 
@@ -1580,6 +1591,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minimist@npm:~0.2.0":
+  version: 0.2.4
+  resolution: "minimist@npm:0.2.4"
+  checksum: 10c2/66c071190bcd69847d40653b5e4cb752ebb35b02d124ac5f21e3effb61dc1e014652107a4d73f4436242dbcddcbe8c3b82d743ff074d7b2cc5fbc9d7acc88a75
+  languageName: node
+  linkType: hard
+
 "minipass-collect@npm:^2.0.1":
   version: 2.0.1
   resolution: "minipass-collect@npm:2.0.1"
@@ -1747,6 +1765,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"opentype.js@npm:^1.3.4":
+  version: 1.3.4
+  resolution: "opentype.js@npm:1.3.4"
+  dependencies:
+    string.prototype.codepointat: "npm:^0.2.1"
+    tiny-inflate: "npm:^1.0.3"
+  bin:
+    ot: bin/ot
+  checksum: 10c2/7b4072d23eccad12e0e7d2ae053cd49911717373d50abce99cbddd45d85d4fb7987a0d087c916c95b44f894612e332cac54e8458c0cabc5e7bb019887f81ae92
+  languageName: node
+  linkType: hard
+
 "p-map@npm:^7.0.2":
   version: 7.0.3
   resolution: "p-map@npm:7.0.3"
@@ -1865,6 +1895,13 @@ __metadata:
   version: 3.6.0
   resolution: "protocol-buffers-schema@npm:3.6.0"
   checksum: 10c2/4ba7006b5bcad34dc1d65aa4dd3c1b36255beee39f855134f60ce155bab33df5f045807f1aa6dde31ee464997530de18638411ff8b2c1e9d3853be88a9cc73b1
+  languageName: node
+  linkType: hard
+
+"rbush@npm:~1.3.2":
+  version: 1.3.5
+  resolution: "rbush@npm:1.3.5"
+  checksum: 10c2/fa20d30a48d91dcb709e97c17ae15f606d1dc97681b42c8514379500e2e0bcf3c1b44a0399d47fecd439fbd102cc98a243255edcbbd5ea7529071ac5ff2491ae
   languageName: node
   linkType: hard
 
@@ -2155,6 +2192,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"string.prototype.codepointat@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "string.prototype.codepointat@npm:0.2.1"
+  checksum: 10c2/2baef769c72d4f0ed1a83887033c0c0955171efe94136ca00bb207ef918da873a4ec36b8f3ed2222b17766118fe26e07e2856ccdf7fbd15d5411955cb150c42f
+  languageName: node
+  linkType: hard
+
 "strip-ansi-cjs@npm:strip-ansi@^6.0.1, strip-ansi@npm:^6.0.0, strip-ansi@npm:^6.0.1":
   version: 6.0.1
   resolution: "strip-ansi@npm:6.0.1"
@@ -2211,6 +2255,13 @@ __metadata:
     glob: "npm:^10.4.1"
     minimatch: "npm:^9.0.4"
   checksum: 10c2/f4fe087538231baaecdda5d7288c24cbcc5684c4e539087b1cf98283a30862c88d844821d76575ff47952c72a58f385ac3c223c29e3894d3654fad1630bdc72a
+  languageName: node
+  linkType: hard
+
+"tiny-inflate@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "tiny-inflate@npm:1.0.3"
+  checksum: 10c2/042c4a9f740c0375fba0608e3ca426da0cde2f23ae96ba556b2df5867ae83b637d1868ced228cf1168ac62334fceee22c1e058896b40e05f63c8b74c2daecda8
   languageName: node
   linkType: hard
 

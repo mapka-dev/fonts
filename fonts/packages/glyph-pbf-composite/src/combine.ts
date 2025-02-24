@@ -1,6 +1,4 @@
-import Pbf from "pbf";
-import { readglyphs, writeglyphs } from "./glyphs.js";
-import { decode, encode, type Glyphs, type Glyph } from "./pbf.js";
+import { decode, encode, type Glyphs, type Glyph } from "@mapka/glyph-pbf";
 
 function compareId(a: Glyph, b: Glyph) {
 	return a.id - b.id;
