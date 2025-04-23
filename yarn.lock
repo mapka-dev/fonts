@@ -411,6 +411,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mapka/fonts-root@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@mapka/fonts-root@workspace:."
+  dependencies:
+    "@biomejs/biome": "npm:^1.9.4"
+    "@chyzwar/biome-config": "npm:^0.2.31"
+    "@types/node": "npm:^22.13.1"
+    "@vitest/coverage-v8": "npm:^3.0.5"
+    husky: "npm:^9.1.7"
+    lint-staged: "npm:^15.4.3"
+    typescript: "npm:^5.7.3"
+    vitest: "npm:3.0.5"
+  languageName: unknown
+  linkType: soft
+
 "@mapka/glyph-pbf-composite@workspace:packages/glyph-pbf-composite":
   version: 0.0.0-use.local
   resolution: "@mapka/glyph-pbf-composite@workspace:packages/glyph-pbf-composite"
@@ -428,25 +443,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mapka/glyph-pbf@workspace:packages/glyph-pbf"
   dependencies:
-    minimist: "npm:~0.2.0"
+    "@types/opentype.js": "npm:^1.3.4"
     opentype.js: "npm:^1.3.4"
     pbf: "npm:^4.0.1"
     rbush: "npm:~1.3.2"
-  languageName: unknown
-  linkType: soft
-
-"@mapka/root-fonts@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@mapka/root-fonts@workspace:."
-  dependencies:
-    "@biomejs/biome": "npm:^1.9.4"
-    "@chyzwar/biome-config": "npm:^0.2.31"
-    "@types/node": "npm:^22.13.1"
-    "@vitest/coverage-v8": "npm:^3.0.5"
-    husky: "npm:^9.1.7"
-    lint-staged: "npm:^15.4.3"
-    typescript: "npm:^5.7.3"
-    vitest: "npm:3.0.5"
   languageName: unknown
   linkType: soft
 
@@ -625,6 +625,13 @@ __metadata:
   dependencies:
     undici-types: "npm:~6.20.0"
   checksum: 10c2/4d6ad5dd452fd861eeef4ae8c9f030e7b7498698207fedca7bd9f856af609db6570b18dbe543489b083c4395e5ae43350b0f78c0421a6515a0d77b5dd64ab740
+  languageName: node
+  linkType: hard
+
+"@types/opentype.js@npm:^1.3.4":
+  version: 1.3.8
+  resolution: "@types/opentype.js@npm:1.3.8"
+  checksum: 10c2/d7a7b08bf0bd8e6f6932709270550a162619fb9e85fe5eb1f950ec40b866b22571d2d3751dc1f973e92abca480488c6ba77fcf444b588afa0b3e5369474a5210
   languageName: node
   linkType: hard
 
@@ -1588,13 +1595,6 @@ __metadata:
   dependencies:
     brace-expansion: "npm:^2.0.1"
   checksum: 10c2/35584269627d1b5ab576e2907c0dd5176d89a024945ad1d7971408f3bccdcecb45e0fda629065fc1297b79637292fdae221b26fc334ff08e710f6fefeb6010c4
-  languageName: node
-  linkType: hard
-
-"minimist@npm:~0.2.0":
-  version: 0.2.4
-  resolution: "minimist@npm:0.2.4"
-  checksum: 10c2/66c071190bcd69847d40653b5e4cb752ebb35b02d124ac5f21e3effb61dc1e014652107a4d73f4436242dbcddcbe8c3b82d743ff074d7b2cc5fbc9d7acc88a75
   languageName: node
   linkType: hard
 

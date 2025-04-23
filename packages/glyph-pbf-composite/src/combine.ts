@@ -5,6 +5,11 @@ function compareId(a: Glyph, b: Glyph) {
 }
 
 
+/**
+ * When combining fonts use first font as result font
+ * and combine all other fonts into it.
+ * Use font stack name as result font name.
+ */
 function combineNamed([first, ...rest]: Buffer[], fontStack: string) {
   const coverage: Record<number, boolean> = {};
   const result: Glyphs = decode(first);
@@ -34,6 +39,11 @@ function combineNamed([first, ...rest]: Buffer[], fontStack: string) {
   return encode(result);
 }
 
+/**
+ * When combining fonts use first font as result font
+ * and combine all other fonts into it.
+ * Create font stack name from font names.
+ */
 function combineAuto([first, ...rest]: Buffer[]) {
   const coverage: Record<number, boolean> = {};
   const result: Glyphs = decode(first);

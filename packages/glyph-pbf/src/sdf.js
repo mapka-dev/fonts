@@ -192,7 +192,7 @@ function ringsToSDF(rings, width, height, buffer, cutoff) {
   return data;
 }
 
-exports.glyphToSDF = (glyph, fontSize, buffer, cutoff) => {
+export const glyphToSDF = (glyph, fontSize, buffer, cutoff) => {
   var fontScale = glyph.font.unitsPerEm / fontSize;
   var ascender = Math.round(glyph.font.ascender / fontScale);
 
