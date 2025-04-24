@@ -12,6 +12,5 @@
   "references": [
     {"path": "./packages/glyph-pbf"},
     {"path": "./packages/glyph-pbf-composite"}
-    
   ]
 }

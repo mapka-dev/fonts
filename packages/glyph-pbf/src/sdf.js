@@ -1,3 +1,4 @@
+import { Glyph } from "opentype.js";
 import {Curve3Div, Curve4Div} from "./curve.js";
 import  rbush from "rbush";
 
@@ -77,6 +78,7 @@ function minDistanceToLineSegment(tree, p, radius) {
 }
 
 function pathToRings(path) {
+  console.log({path})
   var rings = [];
   var ring = [];
 
@@ -147,6 +149,11 @@ function ringsToSDF(rings, width, height, buffer, cutoff) {
   var radius = 8;
   var data = new Uint8ClampedArray(width * height);
 
+  console.log({
+    width,
+    height
+  })
+
   // Buffer
   for (var j = 0; j < rings.length; j++) {
     var ring = rings[j];
@@ -192,9 +199,9 @@ function ringsToSDF(rings, width, height, buffer, cutoff) {
   return data;
 }
 
-export const glyphToSDF = (glyph, fontSize, buffer, cutoff) => {
-  var fontScale = glyph.font.unitsPerEm / fontSize;
-  var ascender = Math.round(glyph.font.ascender / fontScale);
+export const glyphToSDF = (font, glyph, fontSize, buffer, cutoff) => {
+  var fontScale = font.unitsPerEm / fontSize;
+  var ascender = Math.round(font.ascender / fontScale);
 
   var info = {
     width: 0,
