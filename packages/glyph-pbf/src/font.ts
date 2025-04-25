@@ -1,22 +1,19 @@
+import Pbf from "pbf";
 import { load } from "opentype.js";
 import type { Font } from "opentype.js";
-import Pbf from "pbf";
-import { decode, encode, type FontStack } from "./pbf.js";
-import { readglyphs, writefontstack } from "./glyphs.js";
+import { decode, encode, type Glyph, type FontStack } from "./pbf.js";
+import { writefontstack } from "./glyphs.js";
 import { glyphToSDF } from "./sdf.js";
 
 export async function readFont(filename: string): Promise<Font> {
   return new Promise<Font>((resolve, reject) => {
-    load(
-      filename,
-      (err, font) => {
-        if (err || !font) {
-          reject(err);
-        } else {
-          resolve(font);
-        }
-      },
-    );
+    load(filename, (err, font) => {
+      if (err || !font) {
+        reject(err);
+      } else {
+        resolve(font);
+      }
+    });
   });
 }
 
@@ -45,26 +42,34 @@ export function fontToGlyphs(font: Font, from = 0, to = 65535): Buffer {
 
   for (let i = 0; i < max; i++) {
     const glyph = font.glyphs.get(i);
-    const sdf = glyphToSDF(glyph, fontSize, buffer, cutoff);
+    const sdf = glyphToSDF(font, glyph, fontSize, buffer, cutoff);
 
-    const bitmap = Buffer.from(sdf.data as unknown as Uint8ClampedArray<ArrayBuffer>);
-
-    fontStack.glyphs.push({
+    /**
+     * Base sdf glyph 
+     */
+    const sdfGlyph: Glyph = {
       id: i,
-      bitmap,
       width: sdf.glyphWidth,
       height: sdf.glyphHeight,
       left: sdf.glyphBearingX,
       top: sdf.glyphTop,
       advance: sdf.glyphAdvance,
-    });
+    };
+
+    /**
+     * If the glyph has no bitmap data, don't include it.
+     * For example, the space character has no bitmap data.
+     */
+    if (sdf.data) {
+      sdfGlyph.bitmap = Buffer.from(sdf.data);
+    }
+    fontStack.glyphs.push(sdfGlyph);
   }
   writefontstack(fontStack, pbf);
   const view = pbf.finish();
-  
+
   return Buffer.from(view);
 }
-
 
 /**
  * Filter glyphs by range.

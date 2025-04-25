@@ -1,6 +1,6 @@
 {
   "name": "@mapka/glyph-pbf-composite",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Combine glyph (SDF) PBFs on the fly.",
   "main": "./lib/index.js",
   "type": "module",
@@ -13,14 +13,14 @@
     "url": "https://github.com/mapka-dev/fonts.git"
   },
   "dependencies": {
-    "@mapka/glyph-pbf": "0.0.0"
+    "@mapka/glyph-pbf": "0.1.0"
   },
   "devDependencies": {
     "@chyzwar/tsconfig": "^0.3.2",
-    "@types/node": "^22.13.1",
-    "typescript": "^5.7.3",
-    "vite": "^6.1.0",
-    "vitest": "^3.0.5"
+    "@types/node": "^22.14.1",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.2",
+    "vitest": "^3.1.2"
   },
   "files": [
     "src/",
