@@ -24,7 +24,7 @@ const cutoff = 2 / 8;
 /**
  * Convert opentype font to glyphs sdf.
  */
-export function fontToGlyphs(font: Font, from = 0, to = 65535): Uint8Array<ArrayBufferLike> {
+export function fontToGlyphs(font: Font, from = 0, to = 65535) {
   const pbf = new Pbf();
 
 
@@ -51,9 +51,7 @@ export function fontToGlyphs(font: Font, from = 0, to = 65535): Uint8Array<Array
         buffer,
         cutoff
       );
-      if (char === "1") {
-        console.log(sdf);
-      }
+      
       /**
        * Base sdf glyph 
        */
@@ -73,10 +71,6 @@ export function fontToGlyphs(font: Font, from = 0, to = 65535): Uint8Array<Array
        */
       if (sdf.data) {
         sdfGlyph.bitmap = Buffer.from(sdf.data);
-      }
-
-      if (char === "1") {
-        console.log({sdfGlyph, sdf});
       }
 
       fontStack.glyphs.push(sdfGlyph);
