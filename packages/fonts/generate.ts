@@ -1,13 +1,11 @@
 import pino from 'pino';
-
 import { existsSync, lstatSync, readdirSync, writeFileSync } from "node:fs";
 import { basename, join, resolve } from "node:path";
 import { fontToGlyphs, readFont } from "@mapka/font-sdf";
 import { combine } from "@mapka/font-sdf-composite";
 import { mkdir, rm } from 'node:fs/promises';
 import { isMainThread, Worker, workerData } from 'node:worker_threads';
-import { cpus } from 'node:os';
-import { deflate } from 'node:zlib';
+import { availableParallelism } from 'node:os';
 
 
 const logger = pino({
@@ -72,25 +70,31 @@ async function getFontsTodo() {
   return todo;
 }
 
-async function ensureDir(path: string) {
 
-  if (!existsSync(path)) {
-    logger.info(`Creating dir ${path}`);
-    await mkdir(path, { recursive: true });
-  } else {
-    logger.info(`Clearing dir ${path}`);
-    await rm(path, {
+const distDir = "dist"
+
+async function clearDist() {
+  if (existsSync(distDir)) {
+    await rm(distDir, {
       recursive: true, 
       force: true 
-    });
-    await mkdir(path, { 
-      recursive: true 
     });
   }
 }
 
-const distDir = "dist"
-const ranges: [number, number][] = Array(256).fill(256).map((v, i) => [i*v, (i+1)*v]);
+async function ensureDir(path: string) {
+  if (!existsSync(path)) {
+    logger.info(`Creating dir ${path}`);
+    await mkdir(path, { recursive: true });
+  }
+}
+
+
+const ranges: [number, number][] = []
+for(let i = 0; i < 65535; i += 256) {
+  ranges.push([i, i + 255]);
+}
+
 
 async function processFont(dir: string, font: TodoFont) {
   const {
@@ -105,7 +109,6 @@ async function processFont(dir: string, font: TodoFont) {
   const dest = join(distDir, name);
   await ensureDir(dest);
   
-
   const fonts = await Promise.all(
     sources.map((source) => readFont(join(dir, source)))
   );
@@ -114,19 +117,8 @@ async function processFont(dir: string, font: TodoFont) {
     const combined = combine(
       fonts.map((font) => fontToGlyphs(font, from, to))
     );
-
-    const deflated = await new Promise<Buffer>((resolve, reject) => {
-      deflate(combined, (err, deflated) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(deflated);
-        }
-      });
-    });
-    writeFileSync(join(dest, `${from}-${to}.pbf`), deflated);
+    writeFileSync(join(dest, `${from}-${to}.pbf`), combined);
   }
-
   const end = Date.now();
 
   logger.info(`Generated font ${name} in ${end - start}ms`);
@@ -142,12 +134,14 @@ async function processFonts(todo: [string, TodoFont][]) {
 }
 
 if (isMainThread) {
+  await clearDist();
+
   const todo = await getFontsTodo();
-  const cp = cpus()
+  const maxThreads = availableParallelism()
 
-  logger.info(`Processing ${todo.length} fonts on ${cp.length} workers`);
+  logger.info(`Processing ${todo.length} fonts on ${maxThreads} workers`);
 
-  const workSize = todo.length / cp.length;
+  const workSize = todo.length / maxThreads;
 
   for (let i = 0; i < todo.length; i += workSize) {
     const worker = new Worker(import.meta.filename, {

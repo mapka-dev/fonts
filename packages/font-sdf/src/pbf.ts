@@ -6,12 +6,12 @@ import {
 
 export interface Glyph {
   id: number;
-  bitmap?: Buffer;
-  width?: number;
-  height?: number;
-  left?: number;
-  top?: number;
-  advance?: number;
+  bitmap: Buffer | null;
+  width: number;
+  height: number;
+  left: number;
+  top: number;
+  advance: number;
 }
 
 export interface FontStack {

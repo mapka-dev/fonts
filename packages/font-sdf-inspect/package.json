@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Inspect glyph PBF metadata",
   "main": "./lib/index.js",
+  "bin": {
+    "inspect": "./bin/inspect.js"
+  },
   "type": "module",
   "sideEffects": false,
   "publishConfig": {

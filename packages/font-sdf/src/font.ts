@@ -2,7 +2,7 @@ import Pbf from "pbf";
 import { load } from "opentype.js";
 import type { Font } from "opentype.js";
 import { decode, encode, type Glyph, type FontStack } from "./pbf.js";
-import { writefontstack, writeglyphs } from "./glyphs.js";
+import { writeglyphs } from "./glyphs.js";
 import { glyphToSDF } from "./sdf.js";
 
 export async function readFont(filename: string): Promise<Font> {
@@ -24,31 +24,38 @@ const cutoff = 2 / 8;
 /**
  * Convert opentype font to glyphs sdf.
  */
-export function fontToGlyphs(font: Font, from = 0, to = 65535): Buffer {
+export function fontToGlyphs(font: Font, from = 0, to = 65535): Uint8Array<ArrayBufferLike> {
   const pbf = new Pbf();
 
-  const family = font.tables.name.preferredFamily || font.tables.name.fontFamily;
-  const style = font.tables.name.preferredSubfamily || font.tables.name.fontSubfamily;
+
+  const family = font.tables.name.preferredFamily?.en || font.tables.name.fontFamily?.en;
+  const style = font.tables.name.preferredSubfamily?.en || font.tables.name.fontSubfamily?.en;
 
   const basename = `${family} ${style}`;
 
-  const max = Math.min(font.glyphs.length, to);
-
   const fontStack: FontStack = {
     name: basename,
-    range: `${from} - ${max}`,
+    range: `${from} - ${to}`,
     glyphs: [],
   };
 
-  for (let i = 0; i < max; i++) {
-    const glyph = font.glyphs.get(i);
-    const sdf = glyphToSDF(font, glyph, fontSize, buffer, cutoff);
+  for (let i = from; i <= to; i++) {
+    const char = String.fromCharCode(i);
+    const glyph = font.charToGlyph(char);
+    const sdf = glyphToSDF(
+      font,
+      glyph, 
+      fontSize, 
+      buffer, 
+      cutoff
+    );
 
     /**
      * Base sdf glyph 
      */
     const sdfGlyph: Glyph = {
       id: i,
+      bitmap: null,
       width: sdf.glyphWidth,
       height: sdf.glyphHeight,
       left: sdf.glyphBearingX,
