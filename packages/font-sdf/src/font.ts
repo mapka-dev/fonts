@@ -35,44 +35,54 @@ export function fontToGlyphs(font: Font, from = 0, to = 65535): Uint8Array<Array
 
   const fontStack: FontStack = {
     name: basename,
-    range: `${from} - ${to}`,
+    range: `${from}-${to}`,
     glyphs: [],
   };
 
   for (let i = from; i <= to; i++) {
     const char = String.fromCharCode(i);
     const glyph = font.charToGlyph(char);
-    const sdf = glyphToSDF(
-      font,
-      glyph, 
-      fontSize, 
-      buffer, 
-      cutoff
-    );
 
-    /**
-     * Base sdf glyph 
-     */
-    const sdfGlyph: Glyph = {
-      id: i,
-      bitmap: null,
-      width: sdf.glyphWidth,
-      height: sdf.glyphHeight,
-      left: sdf.glyphBearingX,
-      top: sdf.glyphTop,
-      advance: sdf.glyphAdvance,
-    };
+    if (glyph.index > 0) {
+      const sdf = glyphToSDF(
+        font,
+        glyph,
+        fontSize,
+        buffer,
+        cutoff
+      );
+      if (char === "1") {
+        console.log(sdf);
+      }
+      /**
+       * Base sdf glyph 
+       */
+      const sdfGlyph: Glyph = {
+        id: i,
+        bitmap: null,
+        width: sdf.glyphWidth,
+        height: sdf.glyphHeight,
+        left: sdf.glyphBearingX,
+        top: sdf.glyphTop,
+        advance: sdf.glyphAdvance,
+      };
 
-    /**
-     * If the glyph has no bitmap data, don't include it.
-     * For example, the space character has no bitmap data.
-     */
-    if (sdf.data) {
-      sdfGlyph.bitmap = Buffer.from(sdf.data);
+      /**
+       * If the glyph has no bitmap data, don't include it.
+       * For example, the space character has no bitmap data.
+       */
+      if (sdf.data) {
+        sdfGlyph.bitmap = Buffer.from(sdf.data);
+      }
+
+      if (char === "1") {
+        console.log({sdfGlyph, sdf});
+      }
+
+      fontStack.glyphs.push(sdfGlyph);
     }
-    fontStack.glyphs.push(sdfGlyph);
   }
-  writeglyphs({stacks: [fontStack]}, pbf);
+  writeglyphs({ stacks: [fontStack] }, pbf);
   const view = pbf.finish();
 
   return Buffer.from(view);
