@@ -1,5 +1,5 @@
 {
-  "schedule": ["before 2am"],
+  "schedule": ["* * 1,15 * *"],
   "rangeStrategy": "bump",
   "extends": [
     "config:base"
