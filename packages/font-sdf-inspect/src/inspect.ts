@@ -10,7 +10,7 @@ export function inspectRaw(path: string) {
   const {
     stacks: [first],
   } = decode(pbf);
-  
+
   console.info(`Font: ${first.name}`);
   console.info(`Range: ${first.range}`);
   console.table(first.glyphs.map((glyph) => ({
@@ -25,7 +25,9 @@ export function inspectHtml(path: string) {
   }
 
   const pbf = readFileSync(path);
-  const glyphs = decode(pbf);
+  const {
+    stacks: [first],
+  } = decode(pbf);
 
-  console.log(glyphs)
+
 }
