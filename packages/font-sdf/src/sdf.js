@@ -78,7 +78,6 @@ function minDistanceToLineSegment(tree, p, radius) {
 }
 
 function pathToRings(path) {
-  console.log({path})
   var rings = [];
   var ring = [];
 
@@ -148,11 +147,6 @@ function ringsToSDF(rings, width, height, buffer, cutoff) {
   var offset = 0.5;
   var radius = 8;
   var data = new Uint8ClampedArray(width * height);
-
-  console.log({
-    width,
-    height
-  })
 
   // Buffer
   for (var j = 0; j < rings.length; j++) {

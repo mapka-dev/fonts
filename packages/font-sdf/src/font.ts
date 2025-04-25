@@ -2,7 +2,7 @@ import Pbf from "pbf";
 import { load } from "opentype.js";
 import type { Font } from "opentype.js";
 import { decode, encode, type Glyph, type FontStack } from "./pbf.js";
-import { writefontstack } from "./glyphs.js";
+import { writefontstack, writeglyphs } from "./glyphs.js";
 import { glyphToSDF } from "./sdf.js";
 
 export async function readFont(filename: string): Promise<Font> {
@@ -65,7 +65,7 @@ export function fontToGlyphs(font: Font, from = 0, to = 65535): Buffer {
     }
     fontStack.glyphs.push(sdfGlyph);
   }
-  writefontstack(fontStack, pbf);
+  writeglyphs({stacks: [fontStack]}, pbf);
   const view = pbf.finish();
 
   return Buffer.from(view);

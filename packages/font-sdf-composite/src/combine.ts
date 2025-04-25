@@ -1,4 +1,4 @@
-import { decode, encode, type Glyphs, type Glyph } from "@mapka/glyph-pbf";
+import { decode, encode, type Glyphs, type Glyph } from "@mapka/font-sdf";
 
 function compareId(a: Glyph, b: Glyph) {
 	return a.id - b.id;

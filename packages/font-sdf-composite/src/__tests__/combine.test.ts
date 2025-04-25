@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { decode, encode } from "@mapka/glyph-pbf";
+import { decode, encode } from "@mapka/font-sdf";
 import { combine } from "../combine.js";
 
 const openSans512: Buffer = readFileSync(

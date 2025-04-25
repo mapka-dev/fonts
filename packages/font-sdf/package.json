@@ -1,5 +1,5 @@
 {
-  "name": "@mapka/glyph-pbf",
+  "name": "@mapka/font-sdf",
   "version": "0.1.0",
   "description": "Creates signed distance fields out of OpenType/TrueType fonts",
   "license": "BSD-2-Clause",

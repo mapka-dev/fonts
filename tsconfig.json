@@ -10,7 +10,7 @@
   },
   "include": [],
   "references": [
-    {"path": "./packages/glyph-pbf"},
-    {"path": "./packages/glyph-pbf-composite"}
+    {"path": "./packages/font-sdf"},
+    {"path": "./packages/font-sdf-composite"}
   ]
 }

@@ -16,8 +16,8 @@
     "url": "https://github.com/mapka-dev/fonts.git"
   },
   "dependencies": {
-    "@mapka/glyph-pbf": "0.1.0",
-    "@mapka/glyph-pbf-composite": "0.1.0"
+    "@mapka/font-sdf": "0.1.0",
+    "@mapka/font-sdf-composite": "0.1.0"
   },
   "devDependencies": {
     "pino": "^9.6.0",
