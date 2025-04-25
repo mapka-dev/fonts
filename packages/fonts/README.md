@@ -38,4 +38,4 @@ The PBFs will created be in the `dist` directory.
 ## Font License
 
 Please mind the license of the original fonts.
-All fonts are either licensed under OFL or Apache.
+All fonts are either licensed under OFL, UFL or Apache.
