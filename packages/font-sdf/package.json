@@ -1,0 +1,33 @@
+{
+  "name": "@mapka/font-sdf",
+  "version": "0.1.0",
+  "description": "Creates signed distance fields out of OpenType/TrueType fonts",
+  "license": "BSD-2-Clause",
+  "type": "module",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mapka-dev/fonts.git"
+  },
+  "main": "./lib/index.js",
+  "scripts": {
+    "pbf": "pbf ./proto/glyphs.proto > ./src/glyphs.js"
+  },
+  "dependencies": {
+    "opentype.js": "^1.3.4",
+    "pbf": "^4.0.1",
+    "rbush": "~1.3.2"
+  },
+  "devDependencies": {
+    "@types/opentype.js": "^1.3.8"
+  },
+  "files": [
+    "src/",
+    "lib/",
+    "!**/__tests__/",
+    "!lib/buildInfo.json"
+  ]
+}
