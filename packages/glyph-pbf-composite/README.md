@@ -16,13 +16,13 @@ import {
 } from "@mapka/glyph-pbf-composite";
 
 // Without a font stack name
-const pbf = combine([
+const pbfBuffer1 = combine([
   fs.readFileSync("fonts/OpenSans-Regular.pbf"),
   fs.readFileSync("fonts/ArialUnicodeMS-Regular.pbf"),
 ]);
 
 // With a font stack name
-const pbf2 = combine([
+const pbfBuffer2 = combine([
   fs.readFileSync("fonts/OpenSans-Regular.pbf"),
   fs.readFileSync("fonts/ArialUnicodeMS-Regular.pbf"),
 ], "Open Sans Regular,Arial Unicode MS Regular");

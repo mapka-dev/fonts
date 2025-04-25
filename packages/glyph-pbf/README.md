@@ -10,7 +10,7 @@ of initially rasterizing fonts, it implements most of the algorithm with data st
 fontnik is used for the SDF generation phase of [spritenik](https://github.com/mapbox/spritenik), a tool for
 generating PBF sprites.
 
-```
+```ts
 // Debug a PBF without decoding
 console.log(debug(pbf));
 
