@@ -424,6 +424,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@mapka/font-sdf-inspect@npm:0.1.0, @mapka/font-sdf-inspect@workspace:packages/font-sdf-inspect":
+  version: 0.0.0-use.local
+  resolution: "@mapka/font-sdf-inspect@workspace:packages/font-sdf-inspect"
+  dependencies:
+    "@chyzwar/tsconfig": "npm:^0.3.2"
+    "@mapka/font-sdf": "npm:0.1.0"
+    "@types/node": "npm:^22.14.1"
+    typescript: "npm:^5.8.3"
+    vite: "npm:^6.3.2"
+    vitest: "npm:^3.1.2"
+  bin:
+    inspect: ./bin/inspect.js
+  languageName: unknown
+  linkType: soft
+
 "@mapka/font-sdf@npm:0.1.0, @mapka/font-sdf@workspace:packages/font-sdf":
   version: 0.0.0-use.local
   resolution: "@mapka/font-sdf@workspace:packages/font-sdf"
@@ -456,6 +471,7 @@ __metadata:
   dependencies:
     "@mapka/font-sdf": "npm:0.1.0"
     "@mapka/font-sdf-composite": "npm:0.1.0"
+    "@mapka/font-sdf-inspect": "npm:0.1.0"
     pino: "npm:^9.6.0"
     pino-pretty: "npm:^13.0.0"
   languageName: unknown
