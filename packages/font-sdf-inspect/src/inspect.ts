@@ -10,6 +10,7 @@ export function inspectRaw(path: string) {
   const {
     stacks: [first],
   } = decode(pbf);
+  
   console.info(`Font: ${first.name}`);
   console.info(`Range: ${first.range}`);
   console.table(first.glyphs.map((glyph) => ({
