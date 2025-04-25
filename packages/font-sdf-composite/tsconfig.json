@@ -8,6 +8,6 @@
     "src"
   ], 
   "references": [
-    {"path": "../glyph-pbf"}
+    {"path": "../font-sdf"}
   ]
 }

@@ -411,6 +411,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mapka/font-sdf-composite@npm:0.1.0, @mapka/font-sdf-composite@workspace:packages/font-sdf-composite":
+  version: 0.0.0-use.local
+  resolution: "@mapka/font-sdf-composite@workspace:packages/font-sdf-composite"
+  dependencies:
+    "@chyzwar/tsconfig": "npm:^0.3.2"
+    "@mapka/font-sdf": "npm:0.1.0"
+    "@types/node": "npm:^22.14.1"
+    typescript: "npm:^5.8.3"
+    vite: "npm:^6.3.2"
+    vitest: "npm:^3.1.2"
+  languageName: unknown
+  linkType: soft
+
+"@mapka/font-sdf@npm:0.1.0, @mapka/font-sdf@workspace:packages/font-sdf":
+  version: 0.0.0-use.local
+  resolution: "@mapka/font-sdf@workspace:packages/font-sdf"
+  dependencies:
+    "@types/opentype.js": "npm:^1.3.8"
+    opentype.js: "npm:^1.3.4"
+    pbf: "npm:^4.0.1"
+    rbush: "npm:~1.3.2"
+  languageName: unknown
+  linkType: soft
+
 "@mapka/fonts-root@workspace:.":
   version: 0.0.0-use.local
   resolution: "@mapka/fonts-root@workspace:."
@@ -430,34 +454,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mapka/fonts@workspace:packages/fonts"
   dependencies:
-    "@mapka/glyph-pbf": "npm:0.1.0"
-    "@mapka/glyph-pbf-composite": "npm:0.1.0"
+    "@mapka/font-sdf": "npm:0.1.0"
+    "@mapka/font-sdf-composite": "npm:0.1.0"
     pino: "npm:^9.6.0"
     pino-pretty: "npm:^13.0.0"
-  languageName: unknown
-  linkType: soft
-
-"@mapka/glyph-pbf-composite@npm:0.1.0, @mapka/glyph-pbf-composite@workspace:packages/glyph-pbf-composite":
-  version: 0.0.0-use.local
-  resolution: "@mapka/glyph-pbf-composite@workspace:packages/glyph-pbf-composite"
-  dependencies:
-    "@chyzwar/tsconfig": "npm:^0.3.2"
-    "@mapka/glyph-pbf": "npm:0.1.0"
-    "@types/node": "npm:^22.14.1"
-    typescript: "npm:^5.8.3"
-    vite: "npm:^6.3.2"
-    vitest: "npm:^3.1.2"
-  languageName: unknown
-  linkType: soft
-
-"@mapka/glyph-pbf@npm:0.1.0, @mapka/glyph-pbf@workspace:packages/glyph-pbf":
-  version: 0.0.0-use.local
-  resolution: "@mapka/glyph-pbf@workspace:packages/glyph-pbf"
-  dependencies:
-    "@types/opentype.js": "npm:^1.3.8"
-    opentype.js: "npm:^1.3.4"
-    pbf: "npm:^4.0.1"
-    rbush: "npm:~1.3.2"
   languageName: unknown
   linkType: soft
 

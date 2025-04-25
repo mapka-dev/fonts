@@ -1,19 +1,19 @@
-# @mapka/glyph-pbf-composite
+# @mapka/font-sdf-composite
 
-This is fork of [glyph-pbf-composite](https://github.com/mapbox/glyph-pbf-composite) with some changes.
+This is an re-write of [glyph-pbf-composite](https://github.com/mapbox/glyph-pbf-composite).
+
+## Install
 
 ```sh
-npm install @mapka/glyph-pbf-composite
+npm install @mapka/font-sdf-composite
   or
-yarn add @mapka/glyph-pbf-composite
+yarn add @mapka/font-sdf-composite
 ```
 
 ## Usage
 
 ```js
-import { 
-  combine
-} from "@mapka/glyph-pbf-composite";
+import { combine} from "@mapka/glyph-sdf-composite";
 
 // Without a font stack name
 const pbfBuffer1 = combine([
