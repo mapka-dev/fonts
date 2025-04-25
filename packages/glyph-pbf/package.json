@@ -1,0 +1,17 @@
+{
+  "name": "@mapka/glyph-pbf",
+  "version": "0.0.0",
+  "description": "Creates signed distance fields out of OpenType/TrueType fonts",
+  "author": "Konstantin Käfer <mail@kkaefer.com>",
+  "license": "BSD-2-Clause",
+  "type": "module",
+  "main": "./lib/index.js",
+  "scripts": {
+    "pbf": "pbf ./proto/glyphs.proto > ./src/glyphs.js"
+  },
+  "dependencies": {
+    "opentype.js": "^1.3.4",
+    "pbf": "^4.0.1",
+    "rbush": "~1.3.2"
+  }
+}
