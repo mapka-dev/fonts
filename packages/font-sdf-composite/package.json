@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Combine glyph (SDF) PBFs on the fly.",
   "main": "./lib/index.js",
+  "license": "Apache-2.0",
   "type": "module",
   "sideEffects": false,
   "publishConfig": {

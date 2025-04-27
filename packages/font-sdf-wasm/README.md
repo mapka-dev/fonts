@@ -8,6 +8,7 @@ What can be made better?
 
 - Better performance vs js implementation?
 - Better memory usage vs js implementation?
+- Can we generate smaller sdf files?
 - Fixing existing bugs?
-  - [self-intersecting contours](https://github.com/mapbox/sdf-glyph-foundry/issues/3)
+  - [Self-intersecting contours](https://github.com/mapbox/sdf-glyph-foundry/issues/3)
   - [Bitmaps Getting Cut Off](https://github.com/mapbox/node-fontnik/issues/90)

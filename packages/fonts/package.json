@@ -2,12 +2,10 @@
   "name": "@mapka/fonts",
   "version": "0.1.0",
   "description": "Generated glyphs from opentype fonts",
-  "license": "BSD-2-Clause",
+  "license": "Apache-2.0",
   "type": "module",
   "sideEffects": false,
-  "publishConfig": {
-    "access": "public"
-  },
+  "private": true,
   "scripts": {
     "generate": "node generate.ts"
   },
