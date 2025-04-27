@@ -1,12 +1,13 @@
 import pino from 'pino';
 import { existsSync, lstatSync, readdirSync, writeFileSync } from "node:fs";
-import { basename, join, resolve } from "node:path";
+import { join } from "node:path";
 import { fontToGlyphs, readFont } from "@mapka/font-sdf";
-import { combine } from "@mapka/font-sdf-composite";
 import { mkdir, rm } from 'node:fs/promises';
 import { isMainThread, Worker, workerData } from 'node:worker_threads';
 import { availableParallelism } from 'node:os';
 
+const distDir = "dist"
+const fontsDir = "fonts"
 
 const logger = pino({
   transport: {
@@ -16,21 +17,9 @@ const logger = pino({
 
 interface TodoFont {
   name: string;
-  sources: string[];
+  source: string;
 }
 
-const spaceRex = /([A-Z])([A-Z])([a-z])|([a-z])([A-Z])/g;
-
-/**
- * Compatible font name with genfontgl
- * @see https://docs.maptiler.com/guides/self-hosting/map-server/how-to-work-with-fonts-and-labels-in-maptiler-server/
- */
-function fontName(file: string) {
-  return basename(file)
-    .slice(0, -4)
-    .replace('-', '')
-    .replace(spaceRex, '$1$4 $2$3$5');
-}
 
 /**
  * Create a todo list of fonts to generate.
@@ -39,39 +28,24 @@ function fontName(file: string) {
 async function getFontsTodo() {
   const todo: [string, TodoFont][] = [];
 
-  for (const entry of readdirSync('.')) {
-    if (lstatSync(entry).isDirectory()) {
-      const fontsPath = resolve(import.meta.dirname, entry, 'fonts.json');
-
-      if (existsSync(fontsPath)) {
-        logger.info(`Found fonts.json for ${entry}`);
-        const { default: fonts } = await import(fontsPath, { with: { type: 'json' } });
-        for (const font of fonts) {
-          todo.push([entry, font]);
-        }
-      } else {
-        logger.info(`Reading fonts from ${entry}`);
-        for (const file of readdirSync(entry)) {
-          if (file.endsWith('.ttf') || file.endsWith('.otf')) {
-            todo.push([
-              entry,
-              {
-                name: fontName(file),
-                sources: [
-                  file
-                ]
-              }
-            ]);
+  for (const entry of readdirSync('./fonts')) {
+    for (const fontFile of readdirSync(join(fontsDir, entry), {recursive: true, encoding: 'utf8'})) {
+      if(fontFile.includes("Variable")) {
+        continue;
+      }
+      if (fontFile.endsWith('.ttf') || fontFile.endsWith('.otf')) {
+        todo.push([
+          entry,
+          {
+            name: fontFile,
+            source: join(fontsDir, entry, fontFile)
           }
-        }
+        ]);
       }
     }
   }
   return todo;
 }
-
-
-const distDir = "dist"
 
 async function clearDist() {
   if (existsSync(distDir)) {
@@ -96,28 +70,26 @@ for(let i = 0; i < 65535; i += 256) {
 }
 
 
-async function processFont(dir: string, font: TodoFont) {
+async function processFont(dir: string, fontTodo: TodoFont) {
   const {
     name,
-    sources,
-  } = font;
+    source,
+  } = fontTodo;
 
   logger.info(`Processing ${name} font`);
 
   const start = Date.now()
 
-  const dest = join(distDir, name);
+  const font = await readFont(source)
+  const family = font.tables.name.preferredFamily?.en || font.tables.name.fontFamily?.en;
+  const style = font.tables.name.preferredSubfamily?.en || font.tables.name.fontSubfamily?.en;
+
+  const dest = join(distDir, `${family} ${style}`);
   await ensureDir(dest);
-  
-  const fonts = await Promise.all(
-    sources.map((source) => readFont(join(dir, source)))
-  );
 
   for (const [from, to] of ranges) {
-    const combined = combine(
-      fonts.map((font) => fontToGlyphs(font, from, to))
-    );
-    writeFileSync(join(dest, `${from}-${to}.pbf`), combined);
+    const sdfs = fontToGlyphs(font, from, to)
+    writeFileSync(join(dest, `${from}-${to}.pbf`), sdfs);
   }
   const end = Date.now();
 
