@@ -5,16 +5,6 @@ This project packages the most common free fonts with `@mapka/font-sdf` for usag
 - [MapLibre Glyphs](https://maplibre.org/maplibre-style-spec/glyphs/)
 - [Mapbox GL Style JSON](https://docs.mapbox.com/api/maps/fonts/#retrieve-font-glyph-ranges)
 
-## Supported Font Families
-
-The following fonts that are available in Mapbox Studio are supported.
-
-- Noto Sans (patched by Klokan Technologies)
-- Open Sans
-- PT Sans
-- Roboto
-- Metropolis
-
 ## Package the Fonts
 
 Install required packages:
