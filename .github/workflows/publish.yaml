@@ -79,7 +79,7 @@ jobs:
         yarn lerna publish from-git \
           --loglevel debug \
           --yes
-    
+          
     - name: Upload fonts to mapka
       working-directory: packages/fonts
       run: |
