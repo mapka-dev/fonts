@@ -28,6 +28,7 @@
   "files": [
     "src/",
     "lib/",
+    "LICENSE",
     "!**/__tests__/",
     "!lib/buildInfo.json"
   ]
