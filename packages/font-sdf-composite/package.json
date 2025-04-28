@@ -1,6 +1,6 @@
 {
   "name": "@mapka/font-sdf-composite",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Combine glyph (SDF) PBFs on the fly.",
   "main": "./lib/index.js",
   "license": "Apache-2.0",
