@@ -3,6 +3,7 @@ import { defineWorkspace } from "vitest/config";
 const projects = [
   "font-sdf",
   "font-sdf-composite",
+  "font-sdf-inspect",
 ];
 
 export default defineWorkspace(

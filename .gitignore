@@ -11,10 +11,6 @@ build
 dist
 lib
 
-# example data
-data
-fixtures
-
 # misc
 .env
 .eslintcache
