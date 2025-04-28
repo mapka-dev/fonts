@@ -36,7 +36,7 @@ jobs:
     - name: Setup Node.js 
       uses: actions/setup-node@v4
       with:
-        node-version: '22.x'
+        node-version: '23.11.0'
 
     - name: Cache node_modules
       uses: actions/cache@v4
@@ -76,3 +76,9 @@ jobs:
         yarn lerna publish from-git \
           --loglevel debug \
           --yes
+    
+    - name: Upload fonts to mapka
+      working-directory: packages/fonts
+      run: |
+        echo "Upload fonts to mapka"
+        yarn upload

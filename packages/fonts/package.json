@@ -7,7 +7,8 @@
   "sideEffects": false,
   "private": true,
   "scripts": {
-    "generate": "node generate.ts"
+    "generate": "node generate.ts",
+    "upload": "node upload.ts"
   },
   "repository": {
     "type": "git",
