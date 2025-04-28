@@ -55,7 +55,10 @@ jobs:
 
     - name: Lint
       run: yarn lint
-    
+
+    - name: Test
+      run: yarn test
+
     - name: Setup git user
       run: |
         echo "Setup git user to github action user"
