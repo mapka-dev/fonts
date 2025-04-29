@@ -1,5 +1,5 @@
 import pino from 'pino';
-import { existsSync, lstatSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { fontToGlyphs, readFont } from "@mapka/font-sdf";
 import { mkdir, rm } from 'node:fs/promises';
