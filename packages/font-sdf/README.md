@@ -1,7 +1,6 @@
 # @mapka/font-sdf
 
-Generates [Signed Distance Field](https://en.wikipedia.org/wiki/Signed_distance_function) glyphsets from
-OpenType fonts.
+Generates [Signed Distance Field](https://en.wikipedia.org/wiki/Signed_distance_function) glyphsets from OpenType fonts. Generated glyphs are stored in [protobuf](https://developers.google.com/protocol-buffers).
 
 This is fork of [fontnik](https://github.com/mapbox/fontnik) with some changes.
 
