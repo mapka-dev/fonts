@@ -4,6 +4,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/mapka-dev/fonts/compare/v0.2.1...v0.2.2) (2025-04-29)
+
+### Bug Fixes
+
+* **font-sdf:** fix range ([2d67e9a](https://github.com/mapka-dev/fonts/commit/2d67e9adee9979a560d42fb24cdc61c96b89c0cf)) - by @chyzwar
+
 ## [0.2.1](https://github.com/mapka-dev/fonts/compare/v0.2.0...v0.2.1) (2025-04-28)
 
 **Note:** Version bump only for package @mapka/fonts-root
