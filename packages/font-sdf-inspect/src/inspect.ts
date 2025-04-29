@@ -3,7 +3,8 @@ import { existsSync, readFileSync, write, writeFileSync } from "node:fs";
 
 export function inspectRaw(path: string) {
   if (!existsSync(path)) {
-    throw new Error(`File not found: ${path}`);
+    console.error(`File not found: ${path}`);
+    return;
   }
 
   const pbf = readFileSync(path);
@@ -116,8 +117,10 @@ const sdfViewer = (fontStack: FontStack) => {
 
 export function inspectHtml(path: string) {
   if (!existsSync(path)) {
-    throw new Error(`File not found: ${path}`);
+    console.error(`File not found: ${path}`);
+    return;
   }
+
 
   const pbf = readFileSync(path);
   const {

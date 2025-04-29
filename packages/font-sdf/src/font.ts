@@ -92,6 +92,7 @@ export function glyphsRange(fontStack: Buffer, from = 0, to = 65535): Buffer {
     stacks: [first],
   } = result;
 
+  first.range = `${from}-${to}`;
   first.glyphs = first.glyphs.filter((glyph) => glyph.id >= from && glyph.id <= to);
 
   return encode(result);
