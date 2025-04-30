@@ -3,7 +3,7 @@
   "version": "0.2.2",
   "description": "Combine glyph (SDF) PBFs on the fly.",
   "main": "./lib/index.js",
-  "license": "Apache-2.0",
+  "license": "BSD-2-Clause",
   "type": "module",
   "sideEffects": false,
   "publishConfig": {
@@ -20,7 +20,7 @@
     "@chyzwar/tsconfig": "^0.4.0",
     "@types/node": "^22.15.3",
     "typescript": "^5.8.3",
-    "vite": "^6.3.3",
+    "vite": "^6.3.4",
     "vitest": "^3.1.2"
   },
   "files": [
