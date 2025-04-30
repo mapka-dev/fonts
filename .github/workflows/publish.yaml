@@ -84,11 +84,11 @@ jobs:
     - name: Upload fonts to mapka
       working-directory: packages/fonts
       run: |
-        echo "PG_HOST=${{ secrets.MAPKA_DEV_API_URL }}" >> .env
-        echo "PG_USER=${{ secrets.MAPKA_DEV_API_KEY }}" >> .env
+        echo "MAPKA_DEV_API_URL=${{ secrets.MAPKA_DEV_API_URL }}" >> .env
+        echo "MAPKA_DEV_API_KEY=${{ secrets.MAPKA_DEV_API_KEY }}" >> .env
 
-        echo "PG_PASSWORD=${{ secrets.MAPKA_PROD_API_URL }}" >> .env
-        echo "PG_DB=${{ secrets.MAPKA_PROD_API_KEY }}" >> .env
+        echo "MAPKA_PROD_API_URL=${{ secrets.MAPKA_PROD_API_URL }}" >> .env
+        echo "MAPKA_PROD_API_KEY=${{ secrets.MAPKA_PROD_API_KEY }}" >> .env
 
         echo "Upload fonts to mapka"
         yarn upload
