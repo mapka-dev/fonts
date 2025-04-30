@@ -921,12 +921,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mapka/font-sdf-composite@npm:^0.2.2, @mapka/font-sdf-composite@workspace:packages/font-sdf-composite":
+"@mapka/font-sdf-composite@npm:^0.2.3, @mapka/font-sdf-composite@workspace:packages/font-sdf-composite":
   version: 0.0.0-use.local
   resolution: "@mapka/font-sdf-composite@workspace:packages/font-sdf-composite"
   dependencies:
     "@chyzwar/tsconfig": "npm:^0.4.0"
-    "@mapka/font-sdf": "npm:^0.2.2"
+    "@mapka/font-sdf": "npm:^0.2.3"
     "@types/node": "npm:^22.15.3"
     typescript: "npm:^5.8.3"
     vite: "npm:^6.3.4"
@@ -934,12 +934,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mapka/font-sdf-inspect@npm:^0.2.2, @mapka/font-sdf-inspect@workspace:packages/font-sdf-inspect":
+"@mapka/font-sdf-inspect@npm:^0.2.3, @mapka/font-sdf-inspect@workspace:packages/font-sdf-inspect":
   version: 0.0.0-use.local
   resolution: "@mapka/font-sdf-inspect@workspace:packages/font-sdf-inspect"
   dependencies:
     "@chyzwar/tsconfig": "npm:^0.4.0"
-    "@mapka/font-sdf": "npm:^0.2.2"
+    "@mapka/font-sdf": "npm:^0.2.3"
     "@types/node": "npm:^22.15.3"
     typescript: "npm:^5.8.3"
     vite: "npm:^6.3.4"
@@ -949,7 +949,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mapka/font-sdf@npm:^0.2.2, @mapka/font-sdf@workspace:packages/font-sdf":
+"@mapka/font-sdf@npm:^0.2.3, @mapka/font-sdf@workspace:packages/font-sdf":
   version: 0.0.0-use.local
   resolution: "@mapka/font-sdf@workspace:packages/font-sdf"
   dependencies:
@@ -985,9 +985,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mapka/fonts@workspace:packages/fonts"
   dependencies:
-    "@mapka/font-sdf": "npm:^0.2.2"
-    "@mapka/font-sdf-composite": "npm:^0.2.2"
-    "@mapka/font-sdf-inspect": "npm:^0.2.2"
+    "@mapka/font-sdf": "npm:^0.2.3"
+    "@mapka/font-sdf-composite": "npm:^0.2.3"
+    "@mapka/font-sdf-inspect": "npm:^0.2.3"
     "@types/node": "npm:^22.15.3"
     pino: "npm:^9.6.0"
     pino-pretty: "npm:^13.0.0"
