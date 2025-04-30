@@ -4,6 +4,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.0](https://github.com/mapka-dev/fonts/compare/v0.2.3...v0.3.0) (2025-04-30)
+
+**Note:** Version bump only for package @mapka/font-sdf-composite
+
 ## [0.2.3](https://github.com/mapka-dev/fonts/compare/v0.2.2...v0.2.3) (2025-04-29)
 
 **Note:** Version bump only for package @mapka/font-sdf-composite

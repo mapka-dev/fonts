@@ -1,6 +1,6 @@
 {
   "name": "@mapka/fonts",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Generated glyphs from opentype fonts",
   "license": "Apache-2.0",
   "type": "module",
@@ -15,11 +15,11 @@
     "url": "https://github.com/mapka-dev/fonts.git"
   },
   "dependencies": {
-    "@mapka/font-sdf": "^0.2.3",
-    "@mapka/font-sdf-composite": "^0.2.3"
+    "@mapka/font-sdf": "^0.3.0",
+    "@mapka/font-sdf-composite": "^0.3.0"
   },
   "devDependencies": {
-    "@mapka/font-sdf-inspect": "^0.2.3",
+    "@mapka/font-sdf-inspect": "^0.3.0",
     "@types/node": "^22.15.3",
     "pino": "^9.6.0",
     "pino-pretty": "^13.0.0"

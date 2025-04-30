@@ -4,6 +4,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.0](https://github.com/mapka-dev/fonts/compare/v0.2.3...v0.3.0) (2025-04-30)
+
+### Features
+
+* **fonts:** make upload more configurable ([07ca1d0](https://github.com/mapka-dev/fonts/commit/07ca1d07d5d271569ad341a1120e6d474b592401)) - by @chyzwar
+
+### Bug Fixes
+
+* **font-sdf:** fix glyph serialisation for 0 ([cb64d52](https://github.com/mapka-dev/fonts/commit/cb64d52106e141478f697f047cccfaaef3210872)) - by @chyzwar
+
 ## [0.2.3](https://github.com/mapka-dev/fonts/compare/v0.2.2...v0.2.3) (2025-04-29)
 
 **Note:** Version bump only for package @mapka/fonts-root
