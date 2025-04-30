@@ -3,5 +3,9 @@
     "readglyphs",
     "sdfs",
     "writeglyphs"
-  ]
+  ], 
+  "files.associations": {
+    ".env.example": "env",
+    ".env.test": "env"
+  }
 }

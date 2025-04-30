@@ -12,14 +12,21 @@ function readglyphField(tag, obj, pbf) {
     else if (tag === 6) obj.top = pbf.readSVarint();
     else if (tag === 7) obj.advance = pbf.readVarint();
 }
+
+/**
+ * !important
+ * Manually overwritten to handle 0 values if(0)
+ * When if prop value is 0 it will not be written properly
+ * Some values could lead to NaN values when omitted and used in calculations
+ */
 export function writeglyph(obj, pbf) {
-    if (obj.id) pbf.writeVarintField(1, obj.id);
+    if (obj.id !== undefined) pbf.writeVarintField(1, obj.id);
     if (obj.bitmap != null) pbf.writeBytesField(2, obj.bitmap);
-    if (obj.width) pbf.writeVarintField(3, obj.width);
-    if (obj.height) pbf.writeVarintField(4, obj.height);
-    if (obj.left) pbf.writeSVarintField(5, obj.left);
-    if (obj.top) pbf.writeSVarintField(6, obj.top);
-    if (obj.advance) pbf.writeVarintField(7, obj.advance);
+    if (obj.width !== undefined) pbf.writeVarintField(3, obj.width);
+    if (obj.height !== undefined) pbf.writeVarintField(4, obj.height);
+    if (obj.left !== undefined) pbf.writeSVarintField(5, obj.left);
+    if (obj.top !== undefined) pbf.writeSVarintField(6, obj.top);
+    if (obj.advance !== undefined) pbf.writeVarintField(7, obj.advance);
 }
 
 export function readfontstack(pbf, end) {

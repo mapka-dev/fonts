@@ -1,6 +1,9 @@
 # @mapka/font-sdf-composite
 
+Combine glyph (SDF) PBFs on the fly.
+
 This is an re-write of [glyph-pbf-composite](https://github.com/mapbox/glyph-pbf-composite).
+There are code left over from the original implementation in form of tests and fixtures.
 
 ## Install
 

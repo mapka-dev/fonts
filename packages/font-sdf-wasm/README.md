@@ -12,3 +12,10 @@ What can be made better?
 - Fixing existing bugs?
   - [Self-intersecting contours](https://github.com/mapbox/sdf-glyph-foundry/issues/3)
   - [Bitmaps Getting Cut Off](https://github.com/mapbox/node-fontnik/issues/90)
+
+## More
+
+[about-text-rendering-in-maplibre](https://github.com/wipfli/about-text-rendering-in-maplibre)
+[Render complex text, variant forms, emoji, etc](https://github.com/1ec5/maplibre-gl-js/pull/1)
+[Extended TinySDF text rendering](https://github.com/maplibre/maplibre-style-spec/issues/1045)
+[elax requirement for glyphs when using text-field](https://github.com/maplibre/maplibre-style-spec/pull/1068)
