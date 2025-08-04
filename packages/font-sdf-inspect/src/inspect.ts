@@ -1,5 +1,5 @@
 import { decode, type FontStack } from "@mapka/font-sdf";
-import { existsSync, readFileSync, write, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 
 export function inspectRaw(path: string) {
   if (!existsSync(path)) {

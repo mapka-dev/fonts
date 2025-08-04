@@ -70,7 +70,7 @@ for(let i = 0; i < 65535; i += 256) {
 }
 
 
-async function processFont(dir: string, fontTodo: TodoFont) {
+async function processFont(fontTodo: TodoFont) {
   const {
     name,
     source,
@@ -101,7 +101,8 @@ async function processFonts(todo: [string, TodoFont][]) {
   logger.info(todo.map(([dir, {name}]) => `${dir}-${name}`), 'Processing fonts');
  
   for (const [dir, font] of todo) {
-    await processFont(dir, font);
+    logger.info({dir, font}, `Processing`)
+    await processFont(font);
   }
 }
 
