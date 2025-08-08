@@ -1,5 +1,5 @@
-import { decode, type FontStack } from "@mapka/font-sdf";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { decode, type FontStack } from "@mapka/font-sdf";
 
 export function inspectRaw(path: string) {
   if (!existsSync(path)) {
@@ -120,7 +120,6 @@ export function inspectHtml(path: string) {
     console.error(`File not found: ${path}`);
     return;
   }
-
 
   const pbf = readFileSync(path);
   const {

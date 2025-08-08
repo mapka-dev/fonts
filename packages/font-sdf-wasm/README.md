@@ -18,4 +18,4 @@ What can be made better?
 [about-text-rendering-in-maplibre](https://github.com/wipfli/about-text-rendering-in-maplibre)
 [Render complex text, variant forms, emoji, etc](https://github.com/1ec5/maplibre-gl-js/pull/1)
 [Extended TinySDF text rendering](https://github.com/maplibre/maplibre-style-spec/issues/1045)
-[elax requirement for glyphs when using text-field](https://github.com/maplibre/maplibre-style-spec/pull/1068)
+[relax requirement for glyphs when using text-field](https://github.com/maplibre/maplibre-style-spec/pull/1068)

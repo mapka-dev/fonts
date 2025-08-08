@@ -1,9 +1,8 @@
-import { decode, encode, type Glyphs, type Glyph } from "@mapka/font-sdf";
+import { decode, encode, type Glyph, type Glyphs } from "@mapka/font-sdf";
 
 function compareId(a: Glyph, b: Glyph) {
-	return a.id - b.id;
+  return a.id - b.id;
 }
-
 
 /**
  * When combining fonts use first font as result font
@@ -35,7 +34,7 @@ function combineNamed([first, ...rest]: Buffer[], fontStack: string) {
       }
     }
   }
-	resultStack.glyphs.sort(compareId);
+  resultStack.glyphs.sort(compareId);
   return encode(result);
 }
 
@@ -69,7 +68,7 @@ function combineAuto([first, ...rest]: Buffer[]) {
     }
     resultStack.name = `${resultStack.name}, ${decodedStack.name}`;
   }
-	resultStack.glyphs.sort(compareId);
+  resultStack.glyphs.sort(compareId);
   return encode(result);
 }
 
@@ -84,7 +83,5 @@ export function combine(buffers: Buffer[], fontStack?: string): Buffer {
     throw new Error("No buffers provided");
   }
 
-  return fontStack 
-		? combineNamed(buffers, fontStack) 
-		: combineAuto(buffers);
+  return fontStack ? combineNamed(buffers, fontStack) : combineAuto(buffers);
 }

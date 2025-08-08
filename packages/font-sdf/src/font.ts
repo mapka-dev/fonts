@@ -1,8 +1,8 @@
-import Pbf from "pbf";
-import { load } from "opentype.js";
 import type { Font } from "opentype.js";
-import { decode, encode, type Glyph, type FontStack } from "./pbf.js";
+import { load } from "opentype.js";
+import Pbf from "pbf";
 import { writeglyphs } from "./glyphs.js";
+import { decode, encode, type FontStack, type Glyph } from "./pbf.js";
 import { glyphToSDF } from "./sdf.js";
 
 export async function readFont(filename: string): Promise<Font> {
@@ -27,7 +27,6 @@ const cutoff = 2 / 8;
 export function fontToGlyphs(font: Font, from = 0, to = 65535) {
   const pbf = new Pbf();
 
-
   const family = font.tables.name.preferredFamily?.en || font.tables.name.fontFamily?.en;
   const style = font.tables.name.preferredSubfamily?.en || font.tables.name.fontSubfamily?.en;
 
@@ -44,16 +43,10 @@ export function fontToGlyphs(font: Font, from = 0, to = 65535) {
     const glyph = font.charToGlyph(char);
 
     if (glyph.index > 0) {
-      const sdf = glyphToSDF(
-        font,
-        glyph,
-        fontSize,
-        buffer,
-        cutoff
-      );
-      
+      const sdf = glyphToSDF(font, glyph, fontSize, buffer, cutoff);
+
       /**
-       * Base sdf glyph 
+       * Base sdf glyph
        */
       const sdfGlyph: Glyph = {
         id: i,

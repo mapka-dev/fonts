@@ -1,1 +1,1 @@
-export {inspectRaw, inspectHtml} from './inspect.js';
+export { inspectHtml, inspectRaw } from "./inspect.js";
