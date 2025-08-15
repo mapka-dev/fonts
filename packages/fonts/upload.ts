@@ -1,23 +1,22 @@
-import pino from 'pino';
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { loadEnvFile } from 'node:process';
+import { loadEnvFile } from "node:process";
+import pino from "pino";
 
-loadEnvFile()
+loadEnvFile();
 
-const fontsDir = "fonts"
+const fontsDir = "fonts";
 
 const logger = pino({
   transport: {
-    target: 'pino-pretty'
+    target: "pino-pretty",
   },
-})
+});
 
 interface TodoFont {
   name: string;
   source: string;
 }
-
 
 /**
  * Create a todo list of fonts to generate.
@@ -26,18 +25,21 @@ interface TodoFont {
 async function getFontsTodo() {
   const todo: [string, TodoFont][] = [];
 
-  for (const entry of readdirSync('./fonts')) {
-    for (const fontFile of readdirSync(join(fontsDir, entry), {recursive: true, encoding: 'utf8'})) {
-      if(fontFile.includes("Variable")) {
+  for (const entry of readdirSync("./fonts")) {
+    for (const fontFile of readdirSync(join(fontsDir, entry), {
+      recursive: true,
+      encoding: "utf8",
+    })) {
+      if (fontFile.includes("Variable")) {
         continue;
       }
-      if (fontFile.endsWith('.ttf') || fontFile.endsWith('.otf')) {
+      if (fontFile.endsWith(".ttf") || fontFile.endsWith(".otf")) {
         todo.push([
           entry,
           {
             name: fontFile,
-            source: join(fontsDir, entry, fontFile)
-          }
+            source: join(fontsDir, entry, fontFile),
+          },
         ]);
       }
     }
@@ -50,19 +52,17 @@ interface Options {
   apiKey: string;
 }
 
-async function processFonts(todo: [string, TodoFont][], {apiKey, apiUrl}: Options) {
-  for (const [dir, {name, source}] of todo) {
+async function processFonts(todo: [string, TodoFont][], { apiKey, apiUrl }: Options) {
+  for (const [dir, { name, source }] of todo) {
     logger.info(`Processing font ${dir}-${name}`);
 
-    const start = Date.now()
-  
+    const start = Date.now();
+
     const body = new FormData();
-    const blob  = new Blob([
-      readFileSync(source)
-    ]);
+    const blob = new Blob([readFileSync(source)]);
     body.append("file", blob, source);
-  
-    await fetch(apiUrl, {
+
+    await fetch(`${apiUrl}/v1/root/fonts`, {
       method: "POST",
       body,
       headers: {
@@ -70,19 +70,24 @@ async function processFonts(todo: [string, TodoFont][], {apiKey, apiUrl}: Option
       },
     }).then(async (res) => {
       if (!res.ok) {
-        throw new Error("Failed to upload font");
+        throw new Error("Failed to upload font", {
+          cause: {
+            status: res.status,
+            statusText: res.statusText,
+          }
+        });
       }
     });
-  
+
     const end = Date.now();
-  
+
     logger.info(`Uploaded font ${name} in ${end - start}ms`);
   }
 }
 
 const todo = await getFontsTodo();
 
-const { 
+const {
   MAPKA_DEV_API_URL,
   MAPKA_DEV_API_KEY,
   MAPKA_PROD_API_URL,
