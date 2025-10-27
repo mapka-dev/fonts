@@ -4,6 +4,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.0](https://github.com/mapka-dev/fonts/compare/v0.3.0...v0.4.0) (2025-10-27)
+
+### Features
+
+* **fonts:** added nunito font ([267cd4d](https://github.com/mapka-dev/fonts/commit/267cd4db7fcefed4a131c035c152e2b81aa9bd3a)) - by @chyzwar
+
 ## [0.3.0](https://github.com/mapka-dev/fonts/compare/v0.2.3...v0.3.0) (2025-04-30)
 
 ### Features

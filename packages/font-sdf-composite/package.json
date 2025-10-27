@@ -1,6 +1,6 @@
 {
   "name": "@mapka/font-sdf-composite",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Combine glyph (SDF) PBFs on the fly.",
   "main": "./lib/index.js",
   "license": "BSD-2-Clause",
@@ -14,7 +14,7 @@
     "url": "https://github.com/mapka-dev/fonts.git"
   },
   "dependencies": {
-    "@mapka/font-sdf": "^0.3.0"
+    "@mapka/font-sdf": "^0.4.0"
   },
   "devDependencies": {
     "@chyzwar/tsconfig": "^0.4.0",
