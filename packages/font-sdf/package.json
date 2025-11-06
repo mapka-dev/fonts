@@ -1,6 +1,6 @@
 {
   "name": "@mapka/font-sdf",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Creates signed distance fields out of OpenType/TrueType fonts",
   "license": "BSD-2-Clause",
   "type": "module",
