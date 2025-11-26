@@ -39,5 +39,11 @@
     "lint-staged": "^16.2.6",
     "typescript": "^5.9.3",
     "vitest": "4.0.7"
-  }
+  },
+  "dependenciesMeta": {
+    "esbuild": {
+      "built": true
+    }
+  },
+  "packageManager": "yarn@4.12.0"
 }
