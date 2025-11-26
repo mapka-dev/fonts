@@ -935,6 +935,9 @@ __metadata:
     lint-staged: "npm:^16.2.6"
     typescript: "npm:^5.9.3"
     vitest: "npm:4.0.7"
+  dependenciesMeta:
+    esbuild:
+      built: true
   languageName: unknown
   linkType: soft
 
@@ -5207,11 +5210,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.9.3#optional!builtin<compat/typescript>":
   version: 5.9.3
-  resolution: "typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=cef18b"
+  resolution: "typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c2/bc13f9e87d4cc582fd5c0a4372106a753b217790640d07f335eb2e74b686a1c4f44c1c0fe7c6f7fb4e2cb595ef93c554fc704091cdc7d99a41baeb0328dc929a
+  checksum: 10c2/886a590c758dbe6d2ead59eeeb9b331308040b925525b9809a6ae32e16527d35018f446c514502915c8fb2083b237f81191df7c261d0c7739f62377758ddaf31
   languageName: node
   linkType: hard
 
