@@ -1,6 +1,6 @@
 import type { Font } from "opentype.js";
 import { load } from "opentype.js";
-import Pbf from "pbf";
+import { PbfWriter } from "pbf";
 import { writeglyphs } from "./glyphs.js";
 import { decode, encode, type FontStack, type Glyph } from "./pbf.js";
 import { glyphToSDF } from "./sdf.js";
@@ -25,7 +25,7 @@ const cutoff = 2 / 8;
  * Convert opentype font to glyphs sdf.
  */
 export function fontToGlyphs(font: Font, from = 0, to = 65535) {
-  const pbf = new Pbf();
+  const pbf = new PbfWriter();
 
   const family = font.tables.name.preferredFamily?.en || font.tables.name.fontFamily?.en;
   const style = font.tables.name.preferredSubfamily?.en || font.tables.name.fontSubfamily?.en;

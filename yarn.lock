@@ -776,7 +776,7 @@ __metadata:
     "@types/opentype.js": "npm:^1.3.10"
     "@typescript/native": "npm:typescript@^7.0.2"
     opentype.js: "npm:^1.3.4"
-    pbf: "npm:^4.0.1"
+    pbf: "npm:^5.1.2"
     rbush: "npm:~1.3.2"
     typescript: "npm:@typescript/typescript6@^6.0.2"
   languageName: unknown
@@ -3855,14 +3855,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pbf@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "pbf@npm:4.0.1"
+"pbf@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "pbf@npm:5.1.2"
   dependencies:
     resolve-protobuf-schema: "npm:^2.1.0"
   bin:
     pbf: bin/pbf
-  checksum: 10c2/9c7b0dab8516c630758853df4597c07c903ccbb9684a6f1be44cc3b8a8613935f0ccb7ee25c4f6c5db6c072c94aa3db442dc88b958ea9809ea39544d90ccc39e
+  checksum: 10c2/2cbe1d5a1c6fe04bc35987bb454b00635cbefdfcd4a4db19b260144040cd7eaedb4c64bd18945026a9d0600aad1de54ff7c7212a67f1a7252aa009830adf0780
   languageName: node
   linkType: hard
 

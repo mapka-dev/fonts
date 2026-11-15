@@ -1,4 +1,4 @@
-import Pbf from "pbf";
+import { PbfReader, PbfWriter } from "pbf";
 import { 
   readglyphs, 
   writeglyphs 
@@ -30,7 +30,7 @@ export interface Glyphs {
  * @returns {Glyphs} A Glyphs message.
  */
 export function decode(buffer: Buffer): Glyphs {
-  const pbf = new Pbf(buffer);
+  const pbf = new PbfReader(buffer);
   return readglyphs(pbf);
 }
 
@@ -40,7 +40,7 @@ export function decode(buffer: Buffer): Glyphs {
  * @returns {Buffer} A PBF buffer.
  */
 export function encode(message: Glyphs): Buffer {
-  const pbf = new Pbf();
+  const pbf = new PbfWriter();
   writeglyphs(message, pbf);
   const view = pbf.finish();
   
