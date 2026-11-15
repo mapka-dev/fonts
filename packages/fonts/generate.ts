@@ -1,7 +1,7 @@
 import pino from 'pino';
 import { existsSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { fontToGlyphs, readFont } from "@mapka/font-sdf";
+import { fontName, fontToGlyphs, readFont } from "@mapka/font-sdf";
 import { mkdir, rm } from 'node:fs/promises';
 import { isMainThread, Worker, workerData } from 'node:worker_threads';
 import { availableParallelism } from 'node:os';
@@ -81,8 +81,7 @@ async function processFont(fontTodo: TodoFont) {
   const start = Date.now()
 
   const font = await readFont(source)
-  const family = font.tables.name.preferredFamily?.en || font.tables.name.fontFamily?.en;
-  const style = font.tables.name.preferredSubfamily?.en || font.tables.name.fontSubfamily?.en;
+  const { family, style } = fontName(font);
 
   const dest = join(distDir, `${family} ${style}`);
   await ensureDir(dest);

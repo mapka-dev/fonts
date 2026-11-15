@@ -16,16 +16,21 @@ yarn add @mapka/font-sdf
 
 ```ts
 import { 
+  fontName,
   fontToGlyphs,
-  readFont.
+  readFont,
   decode
-} from "@mapka/glyph-pbf";
+} from "@mapka/font-sdf";
 
 // Read a font saved as a PBF and decode it.
 const sdf = readFileSync("fonts/OpenSans-Regular.pbf");
 const pbf = decode(sdf);
 
 // Read a font and generate glyphs for the range 0-255.
-const font = readFont("fonts/OpenSans-Regular.ttf");
+const font = await readFont("fonts/OpenSans-Regular.ttf");
 const buffer = fontToGlyphs(font, 0, 255);
+
+// Family and style used in the font stack name, e.g. { family: "Open Sans", style: "Regular" }.
+// Use this rather than font.tables.name: opentype.js 2 keys that table by platform.
+const { family, style } = fontName(font);
 ```

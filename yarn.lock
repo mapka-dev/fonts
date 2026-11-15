@@ -775,7 +775,7 @@ __metadata:
     "@types/node": "npm:^26.6.6"
     "@types/opentype.js": "npm:^1.3.10"
     "@typescript/native": "npm:typescript@^7.0.2"
-    opentype.js: "npm:^1.3.4"
+    opentype.js: "npm:^2.0.0"
     pbf: "npm:^5.1.2"
     rbush: "npm:^4.0.1"
     typescript: "npm:@typescript/typescript6@^6.0.2"
@@ -3655,15 +3655,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"opentype.js@npm:^1.3.4":
-  version: 1.3.4
-  resolution: "opentype.js@npm:1.3.4"
-  dependencies:
-    string.prototype.codepointat: "npm:^0.2.1"
-    tiny-inflate: "npm:^1.0.3"
+"opentype.js@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "opentype.js@npm:2.0.0"
   bin:
     ot: bin/ot
-  checksum: 10c2/7b4072d23eccad12e0e7d2ae053cd49911717373d50abce99cbddd45d85d4fb7987a0d087c916c95b44f894612e332cac54e8458c0cabc5e7bb019887f81ae92
+  checksum: 10c2/10820accbda1cf884c4f0cfb1a04a39bd6040a36af9547d82b0a2526cd67277e61b04d663ccc9dcc1fa7aae679b1a7b8e6ffae65c66dd6a8be6dfcd8ed971ee0
   languageName: node
   linkType: hard
 
@@ -4491,13 +4488,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"string.prototype.codepointat@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "string.prototype.codepointat@npm:0.2.1"
-  checksum: 10c2/2baef769c72d4f0ed1a83887033c0c0955171efe94136ca00bb207ef918da873a4ec36b8f3ed2222b17766118fe26e07e2856ccdf7fbd15d5411955cb150c42f
-  languageName: node
-  linkType: hard
-
 "strip-ansi-cjs@npm:strip-ansi@^6.0.1, strip-ansi@npm:^6.0.0, strip-ansi@npm:^6.0.1":
   version: 6.0.1
   resolution: "strip-ansi@npm:6.0.1"
@@ -4564,13 +4554,6 @@ __metadata:
   dependencies:
     real-require: "npm:^1.0.0"
   checksum: 10c2/1538d62134f74e6717fd13f1aca705affbd6792f3943a1c3c4cf3e49b5293403b5b84f98641d7c22efb009faebff4515c5fd214893233c14f758481003242965
-  languageName: node
-  linkType: hard
-
-"tiny-inflate@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "tiny-inflate@npm:1.0.3"
-  checksum: 10c2/042c4a9f740c0375fba0608e3ca426da0cde2f23ae96ba556b2df5867ae83b637d1868ced228cf1168ac62334fceee22c1e058896b40e05f63c8b74c2daecda8
   languageName: node
   linkType: hard
 

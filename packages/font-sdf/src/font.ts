@@ -1,20 +1,34 @@
+import { readFile } from "node:fs/promises";
 import type { Font } from "opentype.js";
-import { load } from "opentype.js";
+import opentype from "opentype.js";
 import { PbfWriter } from "pbf";
 import { writeglyphs } from "./glyphs.js";
 import { decode, encode, type FontStack, type Glyph } from "./pbf.js";
 import { glyphToSDF } from "./sdf.js";
 
+/**
+ * opentype.js 2 dropped load(); parse() takes the font bytes.
+ * Default import: its CommonJS entry exposes no named exports to Node ESM.
+ */
 export async function readFont(filename: string): Promise<Font> {
-  return new Promise<Font>((resolve, reject) => {
-    load(filename, (err, font) => {
-      if (err || !font) {
-        reject(err);
-      } else {
-        resolve(font);
-      }
-    });
-  });
+  return opentype.parse(await readFile(filename));
+}
+
+export interface FontName {
+  family: string | undefined;
+  style: string | undefined;
+}
+
+/**
+ * Family and style of a font, as used in its font stack name.
+ * Read the name here rather than from font.tables.name: opentype.js 2
+ * keys that table by platform (windows, macintosh, unicode).
+ */
+export function fontName(font: Font): FontName {
+  return {
+    family: font.getEnglishName("preferredFamily") || font.getEnglishName("fontFamily"),
+    style: font.getEnglishName("preferredSubfamily") || font.getEnglishName("fontSubfamily"),
+  };
 }
 
 const fontSize = 24;
@@ -27,8 +41,7 @@ const cutoff = 2 / 8;
 export function fontToGlyphs(font: Font, from = 0, to = 65535) {
   const pbf = new PbfWriter();
 
-  const family = font.tables.name.preferredFamily?.en || font.tables.name.fontFamily?.en;
-  const style = font.tables.name.preferredSubfamily?.en || font.tables.name.fontSubfamily?.en;
+  const { family, style } = fontName(font);
 
   const basename = `${family} ${style}`;
 

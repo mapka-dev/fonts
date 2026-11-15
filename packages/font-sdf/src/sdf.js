@@ -1,4 +1,3 @@
-import { Glyph } from "opentype.js";
 import {Curve3Div, Curve4Div} from "./curve.js";
 import RBush from "rbush";
 
