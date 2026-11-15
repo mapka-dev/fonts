@@ -1,4 +1,4 @@
-import { defineProject } from "vitest/config";
+import { defineConfig } from "vitest/config";
 
 const projects = [
   "font-sdf",
@@ -6,7 +6,7 @@ const projects = [
   "font-sdf-inspect",
 ];
 
-export default defineProject({
+export default defineConfig({
   test: {
     projects: projects.map((name) => {
       return {
