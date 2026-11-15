@@ -1,17 +1,16 @@
-import { Glyph } from "opentype.js";
 import {Curve3Div, Curve4Div} from "./curve.js";
-import  rbush from "rbush";
+import RBush from "rbush";
 
 // calculates the bbox for a line segment from a to b
 function bbox(a, b) {
-  return [
-    /* x1 */ Math.min(a[0], b[0]),
-    /* y1 */ Math.min(a[1], b[1]),
-    /* x2 */ Math.max(a[0], b[0]),
-    /* y2 */ Math.max(a[1], b[1]),
+  return {
+    minX: Math.min(a[0], b[0]),
+    minY: Math.min(a[1], b[1]),
+    maxX: Math.max(a[0], b[0]),
+    maxY: Math.max(a[1], b[1]),
     a,
     b,
-  ];
+  };
 }
 
 function pt(x, y) {
@@ -63,12 +62,17 @@ function squaredDistanceToLineSegment(p, v, w) {
 
 function minDistanceToLineSegment(tree, p, radius) {
   var squaredRadius = radius * radius;
-  var segments = tree.search([p[0] - radius, p[1] - radius, p[0] + radius, p[1] + radius]);
+  var segments = tree.search({
+    minX: p[0] - radius,
+    minY: p[1] - radius,
+    maxX: p[0] + radius,
+    maxY: p[1] + radius,
+  });
   var squaredDistance = Number.POSITIVE_INFINITY;
   for (var i = 0; i < segments.length; i++) {
     var segment = segments[i];
-    var v = segment[4];
-    var w = segment[5];
+    var v = segment.a;
+    var w = segment.b;
     var dist = squaredDistanceToLineSegment(p, v, w);
     if (dist < squaredDistance && dist < squaredRadius) {
       squaredDistance = dist;
@@ -143,7 +147,7 @@ function ringsToSDF(rings, width, height, buffer, cutoff) {
   width += 2 * buffer;
   height += 2 * buffer;
 
-  var tree = rbush(9);
+  var tree = new RBush(9);
   var offset = 0.5;
   var radius = 8;
   var data = new Uint8ClampedArray(width * height);
