@@ -4,6 +4,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.0](https://github.com/mapka-dev/fonts/compare/v0.5.1...v0.6.0) (2026-11-15)
+
+### ⚠ BREAKING CHANGES
+
+* **font-sdf:** readFont returns an opentype.js 2 Font. Its name table
+  is keyed by platform, so font.tables.name.<field>.en is undefined; use
+  fontName(font) instead. Mapka API createFont reads
+  tables.name.preferredFamily.en and must switch to fontName before it
+  takes this release. Fonts whose unicode name table lacks a field that
+  another platform has may also get a different name, because
+  getEnglishName reads only the first platform present.
+
+### Features
+
+* **font-sdf:** opentype.js 2, export fontName ([b9adceb](https://github.com/mapka-dev/fonts/commit/b9adceb10c9438f7c72dc7b0cb5f60537de06825)) - by @chyzwar
+
 ## [0.5.0](https://github.com/mapka-dev/fonts/compare/v0.4.0...v0.5.0) (2025-11-06)
 
 **Note:** Version bump only for package @mapka/font-sdf

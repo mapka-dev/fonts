@@ -700,12 +700,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mapka/font-sdf-composite@npm:^0.5.1, @mapka/font-sdf-composite@workspace:packages/font-sdf-composite":
+"@mapka/font-sdf-composite@npm:^0.6.0, @mapka/font-sdf-composite@workspace:packages/font-sdf-composite":
   version: 0.0.0-use.local
   resolution: "@mapka/font-sdf-composite@workspace:packages/font-sdf-composite"
   dependencies:
     "@chyzwar/tsconfig": "npm:^0.4.0"
-    "@mapka/font-sdf": "npm:^0.5.0"
+    "@mapka/font-sdf": "npm:^0.6.0"
     "@types/node": "npm:^26.6.6"
     "@typescript/native": "npm:typescript@^7.0.2"
     typescript: "npm:@typescript/typescript6@^6.0.2"
@@ -714,12 +714,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mapka/font-sdf-inspect@npm:^0.5.1, @mapka/font-sdf-inspect@workspace:packages/font-sdf-inspect":
+"@mapka/font-sdf-inspect@npm:^0.6.0, @mapka/font-sdf-inspect@workspace:packages/font-sdf-inspect":
   version: 0.0.0-use.local
   resolution: "@mapka/font-sdf-inspect@workspace:packages/font-sdf-inspect"
   dependencies:
     "@chyzwar/tsconfig": "npm:^0.4.0"
-    "@mapka/font-sdf": "npm:^0.5.0"
+    "@mapka/font-sdf": "npm:^0.6.0"
     "@types/node": "npm:^26.6.6"
     "@typescript/native": "npm:typescript@^7.0.2"
     typescript: "npm:@typescript/typescript6@^6.0.2"
@@ -730,7 +730,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mapka/font-sdf@npm:^0.5.0, @mapka/font-sdf@workspace:packages/font-sdf":
+"@mapka/font-sdf@npm:^0.6.0, @mapka/font-sdf@workspace:packages/font-sdf":
   version: 0.0.0-use.local
   resolution: "@mapka/font-sdf@workspace:packages/font-sdf"
   dependencies:
@@ -772,9 +772,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mapka/fonts@workspace:packages/fonts"
   dependencies:
-    "@mapka/font-sdf": "npm:^0.5.0"
-    "@mapka/font-sdf-composite": "npm:^0.5.1"
-    "@mapka/font-sdf-inspect": "npm:^0.5.1"
+    "@mapka/font-sdf": "npm:^0.6.0"
+    "@mapka/font-sdf-composite": "npm:^0.6.0"
+    "@mapka/font-sdf-inspect": "npm:^0.6.0"
     "@types/node": "npm:^26.6.6"
     "@typescript/native": "npm:typescript@^7.0.2"
     pino: "npm:^10.4.0"
